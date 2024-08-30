@@ -294,4 +294,21 @@
         if (totalScore >= 80) {
             reportText += "<p>Overall, your clinic is performing very well. Keep up the good work, but there are always areas to improve, and we’re here to help you optimize further.</p>";
         } else if (totalScore >= 50) {
-            report
+            reportText += "<p>Your clinic is doing fairly well, but there are some key areas that could benefit from attention. Consider reaching out to us for a consultation to take your practice to the next level.</p>";
+        } else {
+            reportText += "<p>It looks like your clinic could use some support in several areas. We highly recommend contacting us for a comprehensive review and strategic advice to turn things around.</p>";
+        }
+
+        // Add a call-to-action
+        reportText += '<div class="cta"><p><strong>Want to improve your clinic\'s performance?</strong> Contact us today for a personalized consultation and learn how we can help you achieve your business goals.</p></div>';
+
+        // Display the total score and the report
+        document.getElementById('finalScore').innerHTML = 'Your Total Score: ' + totalScore + ' / 100';
+        document.getElementById('report').innerHTML = reportText;
+        document.getElementById('report').style.display = 'block';
+    }
+    </script>
+
+</body>
+</html>
+
