@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Benchmark Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .question h3 {
+            margin-bottom: 10px;
+            color: #0056b3;
+        }
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-left: 5px solid #007bff;
+            border-radius: 5px;
+        }
+        #finalScore {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #d4edda;
+            border-left: 5px solid #28a745;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Financial Benchmark Tool</h1>
+
+    <!-- Question 1 -->
+    <div class="question">
+        <h3>1) I have a written one-year operations plan.</h3>
+        <input type="radio" name="q1" value="10" onclick="showAnswer('q1', 'Great! It is essential to have an annual operational plan for day-to-day tasks to be efficient so that your team members know their responsibilities and timelines.')"> Yes, I refer to it regularly and it is very useful.<br>
+        <input type="radio" name="q1" value="7" onclick="showAnswer('q1', 'Don’t worry, that’s not unusual! It is essential to have an annual operational plan for day-to-day tasks to be efficient so that your team members know their responsibilities and timelines.')"> Yes, but I have difficulty staying on track.<br>
+        <input type="radio" name="q1" value="3" onclick="showAnswer('q1', 'You know you need one, which is the first step. It is important to have an annual operational plan for day-to-day tasks to be efficient so that your team members know their responsibilities and timelines.')"> No, but I think it's important to have one.<br>
+        <input type="radio" name="q1" value="0" onclick="showAnswer('q1', 'Research suggests that it is vital to have an annual operational plan for day-to-day tasks to be efficient so that your team members know their responsibilities and timelines.')"> I don’t think it is important.<br>
+        <div id="answer-q1" class="result"></div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+        <h3>2) I have a long-term business plan.</h3>
+        <input type="radio" name="q2" value="10" onclick="showAnswer('q2', 'Excellent, you seem to be on track. A long-term plan considers where your business is now and where you want to take it.')"> Yes, I refer to it regularly.<br>
+        <input type="radio" name="q2" value="3" onclick="showAnswer('q2', 'You need to go back to this document and update it. Try brainstorming with the rest of your team and continue with regular meetings.')"> Yes, but I rarely review it.<br>
+        <input type="radio" name="q2" value="0" onclick="showAnswer('q2', 'With growth comes risk. Having a plan will help reduce and manage your risks, be proactive rather than reactive, and sleep better at night.')"> No, I do not have one in place.<br>
+        <input type="radio" name="q2" value="0" onclick="showAnswer('q2', 'Now is not the time to slack off if you want to reap the rewards earned from your hard-working career! A long-term plan considers where your business is now.')"> At this stage of my career, it is not that important.<br>
+        <div id="answer-q2" class="result"></div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">
+        <h3>3) I conduct regular reviews of our income statements, balance sheet, and other key financial indicators.</h3>
+        <input type="radio" name="q3" value="10" onclick="showAnswer('q3', 'By reviewing these regularly, and in particular with your bookkeeper or accountant, will keep you at the top of your game.')"> Yes, and I also consult with my bookkeeper/accountant.<br>
+        <input type="radio" name="q3" value="7" onclick="showAnswer('q3', 'If you are comfortable reading the financial reports yourself, then that’s fine. Otherwise, you may consider having more regular meetings with your bookkeeper or accountant.')"> Yes, I manage all my day-to-day financials.<br>
+        <input type="radio" name="q3" value="3" onclick="showAnswer('q3', 'Set up a schedule in your diary for at least quarterly assessments of how you are doing. Get the help of your accountant to make sense of the reports before going alone.')"> No, I do not. I manage my accounts at my financial year end.<br>
+        <input type="radio" name="q3" value="0" onclick="showAnswer('q3', 'If you own a business, you should get some training, as not having these skills can lead to business failure!')"> No, I have no training or experience.<br>
+        <div id="answer-q3" class="result"></div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question">
+        <h3>4) I monitor our annual budget and adjust as necessary.</h3>
+        <input type="radio" name="q4" value="10" onclick="showAnswer('q4', 'I’m glad you have it covered! A budget is an essential document in your business.')"> Yes, I have a budget that I monitor regularly.<br>
+        <input type="radio" name="q4" value="3" onclick="showAnswer('q4', 'Do a review of your budget as soon as possible and assess where you stand. Continue to monitor it at least monthly and adjust as necessary.')"> Yes, I have a budget in place but rarely refer to it.<br>
+        <input type="radio" name="q4" value="0" onclick="showAnswer('q4', 'You had better sit down with your accountant and make one! A budget is an essential document in your business.')"> No, I do not have a budget in place.<br>
+        <input type="radio" name="q4" value="3" onclick="showAnswer('q4', 'Although having your accountant do it for you can work, it is expensive and inefficient. Learn how to do it for yourself!')"> No, I let my accountant handle that.<br>
+        <div id="answer-q4" class="result"></div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question">
+        <h3>5) I rarely, if ever, have any concerns about the business' cash flow.</h3>
+        <input type="radio" name="q5" value="10" onclick="showAnswer('q5', 'Your business sounds healthy! Use this information for next year\'s budget.')"> True. My accounts are well managed and cash flow is rarely an issue.<br>
+        <input type="radio" name="q5" value="7" onclick="showAnswer('q5', 'Having financial reserves is great if they’re within the business, but not if you have to start borrowing or using personal funds!')"> Cash flow is sometimes a problem, but I have financial reserves if needed.<br>
+        <input type="radio" name="q5" value="3" onclick="showAnswer('q5', 'This is where you need to use your budget and compare projected income and costs with actual expenditures, adjusting your budget and spending accordingly.')"> Cash flow is a problem from time to time.<br>
+        <input type="radio" name="q5" value="0" onclick="showAnswer('q5', 'If you are having cash flow problems, it is one of the most unmistakable early signs of business failure.')"> Cash flow is a problem which can affect my ability to pay bills, payroll etc. on time.<br>
+        <div id="answer-q5" class="result"></div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question">
+        <h3>6) The clinic has a set fee schedule that is followed.</h3>
+        <input type="radio" name="q6" value="10" onclick="showAnswer('q6', 'You are managing this well, not losing revenue by altering fees and guessing people\'s ability to pay.')"> Yes. All fees are itemized, and patients are billed accordingly.<br>
+        <input type="radio" name="q6" value="3" onclick="showAnswer('q6', 'You should not be guessing on a person’s ability to pay. You are losing revenue on a day-to-day basis and will not be able to predict business income.')"> I have a fee schedule based on the individual patient\'s ability to pay.<br>
+        <input type="radio" name="q6" value="3" onclick="showAnswer('q6', 'By varying some fees, your income will be less predictable. If you regularly charge different fees, incorporate this into your fee schedule.')"> Some fees are fixed while others may vary.<br>
+        <input type="radio" name="q6" value="0" onclick="showAnswer('q6', 'This is problematic! You need to establish a fee schedule as soon as possible.')"> Fees vary depending on circumstances.<br>
+        <div id="answer-q6" class="result"></div>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question">
+        <h3>7) Clinical fees are reviewed at least annually.</h3>
+        <input type="radio" name="q7" value="7" onclick="showAnswer('q7', 'An annual review is great but don’t forget to consult with your team and check out other local clinics fees.')"> Yes, I review them myself.<br>
+        <input type="radio" name="q7" value="10" onclick="showAnswer('q7', 'It\'s great to listen to feedback from your team members. There may be information that you don’t have.')"> Yes. I also seek feedback from my team.<br>
+        <input type="radio" name="q7" value="0" onclick="showAnswer('q7', 'As expenses go up and no adjustment is made to your fee schedule, you decrease your profit margin.')"> I haven’t reviewed our fees in over 12 months.<br>
+        <input type="radio" name="q7" value="3" onclick="showAnswer('q7', 'It\'s great that you are reviewing your fees, but an annual increase is advisable.')"> I review our fees but have not increased them in over 12 months.<br>
+        <div id="answer-q7" class="result"></div>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question">
+        <h3>8) I am satisfied with the amount of financial compensation our staff earn.</h3>
+        <input type="radio" name="q8" value="10" onclick="showAnswer('q8', 'The feedback you have received sounds positive. Finding the right balance for an employee’s financial compensation can be difficult.')"> Yes. I believe all staff are fairly compensated based on staff feedback.<br>
+        <input type="radio" name="q8" value="3" onclick="showAnswer('q8', 'You may need to check the employee contract to explore alternative salary formats and look at your scheduling template.')"> I believe I am paying one or more of the staff too much which is having a negative effect on my bottom line.<br>
+        <input type="radio" name="q8" value="7" onclick="showAnswer('q8', 'Although it may not significantly affect your bottom line, a review of time management and schedule templates would be prudent.')"> I believe I am paying one or more of the staff too much, but it is not having a significant impact on my bottom line.<br>
+        <input type="radio" name="q8" value="0" onclick="showAnswer('q8', 'Staff retention could become an issue if an increase is not given. An increase in fees or an adjustment to your scheduling could be ways in which you could afford a rise in salary.')"> No, but we can’t afford to give them an increase.<br>
+        <div id="answer-q8" class="result"></div>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="question">
+        <h3>9) I believe our staff are satisfied with their level of compensation.</h3>
+        <input type="radio" name="q9" value="10" onclick="showAnswer('q9', 'That’s great! Regular performance reviews can help you learn more about their strengths and weaknesses, offer constructive feedback for skill development, and establish long-term goals.')"> Yes. I have staff performance reviews and they have indicated they are satisfied.<br>
+        <input type="radio" name="q9" value="7" onclick="showAnswer('q9', 'It\'s about time you had that discussion! Regular performance reviews can help you learn more about their strengths and weaknesses, offer constructive feedback for skill development, and establish long-term goals.')"> Yes, but I have not discussed compensation with them for over 12 months.<br>
+        <input type="radio" name="q9" value="3" onclick="showAnswer('q9', 'You need to set a regular time to discuss individually with your staff! Regular performance reviews can help you learn more about their strengths and weaknesses, offer constructive feedback for skill development, and establish long-term goals.')"> Not sure. It\'s not something I have discussed recently.<br>
+        <input type="radio" name="q9" value="0" onclick="showAnswer('q9', 'You are running the risk of losing this staff member! Two things come to mind here. First, you need to assess why you cannot increase their compensation.')"> No, but I can’t afford to pay them more.<br>
+        <div id="answer-q9" class="result"></div>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question">
+        <h3>10) I have systems in place for regular monitoring of production targets.</h3>
+        <input type="radio" name="q10" value="10" onclick="showAnswer('q10', 'Wow! You know what you want and how to get there! By monitoring production targets frequently, you can be ready to react and respond to any deviations before they have any long-term effect on your business.')"> Yes, I have clear production targets that are regularly monitored to ensure the clinic is meeting its goals.<br>
+        <input type="radio" name="q10" value="3" onclick="showAnswer('q10', 'You need to review those numbers! By monitoring production targets frequently, you can be ready to react and respond to any deviations before they have any long-term effect on your business.')"> Yes, I have production targets, but I rarely review them for making key scheduling decisions.<br>
+        <input type="radio" name="q10" value="3" onclick="showAnswer('q10', 'Those production numbers need to be measurable. By monitoring production targets frequently, you can be ready to react and respond to any deviations before they have any long-term effect on your business.')"> Yes, I have production targets, but they are not measured.<br>
+        <input type="radio" name="q10" value="0" onclick="showAnswer('q10', 'You likely have some work in this area. By monitoring production targets frequently, you can be ready to react and respond to any deviations before they have any long-term effect on your business.')"> No, I do not have production targets.<br>
+        <div id="answer-q10" class="result"></div>
+    </div>
+
+    <!-- Submit Button and Final Score -->
+    <button onclick="calculateScore()">Submit</button>
+    <div id="finalScore"></div>
+
+    <script>
+    function showAnswer(questionId, answerText) {
+        // Find the answer div by question ID
+        var answerDiv = document.getElementById('answer-' + questionId);
+        
+        // Set the inner HTML to the provided answer text
+        answerDiv.innerHTML = answerText;
+    }
+
+    function calculateScore() {
+        var totalScore = 0;
+        
+        // Get the value of each question and add it to the total score
+        for (var i = 1; i <= 10; i++) {
+            var selectedAnswer = document.querySelector('input[name="q' + i + '"]:checked');
+            if (selectedAnswer) {
+                totalScore += parseInt(selectedAnswer.value);
+            }
+        }
+        
+        // Display the total score
+        var finalScoreDiv = document.getElementById('finalScore');
+        finalScoreDiv.innerHTML = 'Your Total Score: ' + totalScore + ' / 100';
+    }
+    </script>
+
+</body>
+</html>
