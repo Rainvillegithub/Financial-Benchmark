@@ -44,6 +44,14 @@
             border-radius: 5px;
             display: none;
         }
+        .cta {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8d7da;
+            border-left: 5px solid #dc3545;
+            border-radius: 5px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -68,7 +76,77 @@
         <input type="radio" name="q2" value="0"> At this stage of my career, it is not that important.<br>
     </div>
 
-    <!-- Repeat for all other questions -->
+    <!-- Question 3 -->
+    <div class="question">
+        <h3>3) I conduct regular reviews of our income statements, balance sheet, and other key financial indicators.</h3>
+        <input type="radio" name="q3" value="10"> Yes, and I also consult with my bookkeeper/accountant.<br>
+        <input type="radio" name="q3" value="7"> Yes, I manage all my day-to-day financials.<br>
+        <input type="radio" name="q3" value="3"> No, I do not. I manage my accounts at my financial year end.<br>
+        <input type="radio" name="q3" value="0"> No, I have no training or experience.<br>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question">
+        <h3>4) I monitor our annual budget and adjust as necessary.</h3>
+        <input type="radio" name="q4" value="10"> Yes, I have a budget that I monitor regularly.<br>
+        <input type="radio" name="q4" value="3"> Yes, I have a budget in place but rarely refer to it.<br>
+        <input type="radio" name="q4" value="0"> No, I do not have a budget in place.<br>
+        <input type="radio" name="q4" value="3"> No, I let my accountant handle that.<br>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question">
+        <h3>5) I rarely, if ever, have any concerns about the business' cash flow.</h3>
+        <input type="radio" name="q5" value="10"> True. My accounts are well managed and cash flow is rarely an issue.<br>
+        <input type="radio" name="q5" value="7"> Cash flow is sometimes a problem, but I have financial reserves if needed.<br>
+        <input type="radio" name="q5" value="3"> Cash flow is a problem from time to time.<br>
+        <input type="radio" name="q5" value="0"> Cash flow is a problem which can affect my ability to pay bills, payroll, etc. on time.<br>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question">
+        <h3>6) The clinic has a set fee schedule that is followed.</h3>
+        <input type="radio" name="q6" value="10"> Yes. All fees are itemized, and patients are billed accordingly.<br>
+        <input type="radio" name="q6" value="3"> I have a fee schedule based on the individual patient's ability to pay.<br>
+        <input type="radio" name="q6" value="3"> Some fees are fixed while others may vary.<br>
+        <input type="radio" name="q6" value="0"> Fees vary depending on circumstances.<br>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question">
+        <h3>7) Clinical fees are reviewed at least annually.</h3>
+        <input type="radio" name="q7" value="7"> Yes, I review them myself.<br>
+        <input type="radio" name="q7" value="10"> Yes. I also seek feedback from my team.<br>
+        <input type="radio" name="q7" value="0"> I haven’t reviewed our fees in over 12 months.<br>
+        <input type="radio" name="q7" value="3"> I review our fees but have not increased them in over 12 months.<br>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question">
+        <h3>8) I am satisfied with the amount of financial compensation our staff earn.</h3>
+        <input type="radio" name="q8" value="10"> Yes. I believe all staff are fairly compensated based on staff feedback.<br>
+        <input type="radio" name="q8" value="3"> I believe I am paying one or more of the staff too much which is having a negative effect on my bottom line.<br>
+        <input type="radio" name="q8" value="7"> I believe I am paying one or more of the staff too much, but it is not having a significant impact on my bottom line.<br>
+        <input type="radio" name="q8" value="0"> No, but we can’t afford to give them an increase.<br>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="question">
+        <h3>9) I believe our staff are satisfied with their level of compensation.</h3>
+        <input type="radio" name="q9" value="10"> Yes. I have staff performance reviews and they have indicated they are satisfied.<br>
+        <input type="radio" name="q9" value="7"> Yes, but I have not discussed compensation with them for over 12 months.<br>
+        <input type="radio" name="q9" value="3"> Not sure. It's not something I have discussed recently.<br>
+        <input type="radio" name="q9" value="0"> No, but I can’t afford to pay them more.<br>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question">
+        <h3>10) I have systems in place for regular monitoring of production targets.</h3>
+        <input type="radio" name="q10" value="10"> Yes, I have clear production targets that are regularly monitored to ensure the clinic is meeting its goals.<br>
+        <input type="radio" name="q10" value="3"> Yes, I have production targets, but I rarely review them for making key scheduling decisions.<br>
+        <input type="radio" name="q10" value="3"> Yes, I have production targets, but they are not measured.<br>
+        <input type="radio" name="q10" value="0"> No, I do not have production targets.<br>
+    </div>
 
     <!-- Submit Button -->
     <button onclick="generateReport()">Submit</button>
@@ -82,33 +160,136 @@
         var totalScore = 0;
         var reportText = "";
 
-        // Calculate the total score and prepare the report text
+        // Capture the client's answers and provide corresponding feedback
         for (var i = 1; i <= 10; i++) {
             var selectedAnswer = document.querySelector('input[name="q' + i + '"]:checked');
             if (selectedAnswer) {
-                totalScore += parseInt(selectedAnswer.value);
+                var answerValue = parseInt(selectedAnswer.value);
+                totalScore += answerValue;
+
+                // Provide detailed feedback for each question
+                if (i === 1) {
+                    reportText += "<p><strong>Question 1: </strong>";
+                    if (answerValue === 10) {
+                        reportText += "Great! It is essential to have an annual operational plan for day-to-day tasks to be efficient so that your team members know their responsibilities and timelines. This will help you achieve your long-term goals and be part of your business’s strategic plan.</p>";
+                    } else if (answerValue === 7) {
+                        reportText += "Don’t worry, that’s not unusual! It's great that you have an operational plan. To stay on track, involve your team, have regular meetings, and create progress indicators.</p>";
+                    } else if (answerValue === 3) {
+                        reportText += "You know you need one, which is the first step. Take time to sit down with your team and create an operational plan that supports your strategic goals.</p>";
+                    } else {
+                        reportText += "Research suggests that having an operational plan is vital. You could be missing out on efficiency and better financial outcomes without one!</p>";
+                    }
+                }
+
+                if (i === 2) {
+                    reportText += "<p><strong>Question 2: </strong>";
+                    if (answerValue === 10) {
+                        reportText += "Excellent! A long-term plan is crucial for strategic decision-making and guiding the future of your business.</p>";
+                    } else if (answerValue === 3) {
+                        reportText += "It’s time to revisit and update your long-term business plan. Regular reviews will keep you on track for growth and success.</p>";
+                    } else {
+                        reportText += "Without a long-term plan, your business could face unnecessary risks. Consider creating one to guide your future decisions.</p>";
+                    }
+                }
+
+                if (i === 3) {
+                    reportText += "<p><strong>Question 3: </strong>";
+                    if (answerValue === 10) {
+                        reportText += "By reviewing these regularly, especially with your bookkeeper or accountant, you'll stay on top of your financial game and identify areas for growth and improvement early.</p>";
+                    } else if (answerValue === 7) {
+                        reportText += "If you're managing your day-to-day financials, that’s great! However, consider regular consultations with a bookkeeper or accountant to ensure you're interpreting the data correctly.</p>";
+                    } else if (answerValue === 3) {
+                        reportText += "Managing finances only at the end of the fiscal year could expose you to risks. Regular reviews can help you address issues before they grow.</p>";
+                    } else {
+                        reportText += "Not having any financial training or experience could jeopardize your business. Consider getting some training or working closely with a financial expert.</p>";
+                    }
+                }
+
+                if (i === 4) {
+                    reportText += "<p><strong>Question 4: </strong>";
+                    if (answerValue === 10) {
+                        reportText += "Good job! Monitoring and adjusting your budget regularly ensures that your financial planning stays on track and aligned with your goals.</p>";
+                    } else if (answerValue === 3) {
+                        reportText += "It’s important to refer to your budget regularly. Doing so helps you stay aligned with your financial goals and make necessary adjustments in a timely manner.</p>";
+                    } else {
+                        reportText += "Not having a budget in place can lead to unexpected financial issues. It's crucial to create a budget to guide your financial decisions.</p>";
+                    }
+                }
+
+                if (i === 5) {
+                    reportText += "<p><strong>Question 5: </strong>";
+                    if (answerValue === 10) {
+                        reportText += "Excellent! Stable cash flow management is key to a healthy business. Keep up the good work!</p>";
+                    } else if (answerValue === 7) {
+                        reportText += "While it's good to have financial reserves, you should aim to better manage cash flow to avoid relying on them. This will strengthen your financial stability.</p>";
+                    } else if (answerValue === 3) {
+                        reportText += "Cash flow issues need to be addressed quickly. Regularly comparing projected income with actual expenses can help you avoid bigger problems down the line.</p>";
+                    } else {
+                        reportText += "If cash flow problems are affecting your ability to pay bills or payroll, this is a serious warning sign. Professional financial help may be needed to get back on track.</p>";
+                    }
+                }
+
+                if (i === 6) {
+                    reportText += "<p><strong>Question 6: </strong>";
+                    if (answerValue === 10) {
+                        reportText += "You are managing well by sticking to a set fee schedule. This approach helps in maintaining predictability in income and ensures fairness across all patients.</p>";
+                    } else if (answerValue === 3) {
+                        reportText += "Basing fees on individual patients' ability to pay can lead to unpredictable income. A standardized fee schedule is recommended for better financial planning.</p>";
+                    } else {
+                        reportText += "Having varying fees creates unpredictability in revenue. Establishing a consistent fee schedule can improve your financial forecasting and fairness.</p>";
+                    }
+                }
+
+                if (i === 7) {
+                    reportText += "<p><strong>Question 7: </strong>";
+                    if (answerValue === 10) {
+                        reportText += "Great job involving your team in fee reviews! Their input can provide valuable insights and help keep your fee schedule competitive and fair.</p>";
+                    } else if (answerValue === 7) {
+                        reportText += "Reviewing fees yourself is good, but involving your team could provide additional perspectives that ensure your fees remain competitive and fair.</p>";
+                    } else {
+                        reportText += "If you haven’t reviewed your fees recently, you could be missing out on potential revenue. Consider increasing fees incrementally to keep up with rising costs.</p>";
+                    }
+                }
+
+                if (i === 8) {
+                    reportText += "<p><strong>Question 8: </strong>";
+                    if (answerValue === 10) {
+                        reportText += "It's excellent that your staff feel fairly compensated. Regular feedback and adjustments ensure you maintain a motivated and productive team.</p>";
+                    } else if (answerValue === 7) {
+                        reportText += "Overcompensating staff might not affect your bottom line now, but regular reviews and adjustments could help maintain financial balance and morale.</p>";
+                    } else if (answerValue === 3) {
+                        reportText += "Overpaying staff can strain your finances. Reviewing their compensation against revenue generation could help in making necessary adjustments.</p>";
+                    } else {
+                        reportText += "Not being able to offer raises can impact staff morale and retention. Exploring ways to adjust the budget for salary increases might be necessary.</p>";
+                    }
+                }
+
+                if (i === 9) {
+                    reportText += "<p><strong>Question 9: </strong>";
+                    if (answerValue === 10) {
+                        reportText += "Regular performance reviews and compensation discussions are key to keeping staff satisfied and motivated. Keep up the good work!</p>";
+                    } else if (answerValue === 7) {
+                        reportText += "It’s time to have a compensation discussion with your staff. Regular reviews help maintain satisfaction and align their performance with business goals.</p>";
+                    } else if (answerValue === 3) {
+                        reportText += "Uncertainty around compensation can lead to dissatisfaction. Regularly discussing compensation with staff can help address their concerns and improve morale.</p>";
+                    } else {
+                        reportText += "Not addressing compensation concerns can lead to staff turnover. Consider scheduling a review to discuss their compensation and find ways to address their concerns.</p>";
+                    }
+                }
+
+                if (i === 10) {
+                    reportText += "<p><strong>Question 10: </strong>";
+                    if (answerValue === 10) {
+                        reportText += "Monitoring production targets regularly ensures your clinic is on track to meet its goals. This proactive approach can prevent issues before they arise.</p>";
+                    } else if (answerValue === 3) {
+                        reportText += "Reviewing your production targets more frequently can help you make better scheduling decisions and improve overall clinic efficiency.</p>";
+                    } else {
+                        reportText += "Not having measurable targets can lead to inefficiencies. Setting clear and measurable production targets is crucial for tracking your clinic’s progress.</p>";
+                    }
+                }
             }
         }
 
-        // Provide feedback based on the total score
+        // Provide a summary based on the total score
         if (totalScore >= 80) {
-            reportText += "<p>Congratulations! Your clinic is performing exceptionally well. You have a clear plan, strong financial management, and are effectively monitoring key performance indicators.</p>";
-        } else if (totalScore >= 50) {
-            reportText += "<p>Your clinic is doing well, but there's room for improvement. Consider reviewing your business plan more regularly and involving your team in the process.</p>";
-        } else {
-            reportText += "<p>It seems like your clinic might benefit from a thorough review and restructuring. Consider working closely with a financial advisor to address areas of concern.</p>";
-        }
-
-        // Compare the clinic with benchmarks
-        reportText += "<p>Your score is " + totalScore + " out of 100. Compared to other clinics, you are performing in the " + (totalScore >= 80 ? "top 20%" : totalScore >= 50 ? "middle 50%" : "bottom 30%") + " of similar clinics.</p>";
-
-        // Display the score and report
-        document.getElementById('finalScore').innerHTML = 'Your Total Score: ' + totalScore + ' / 100';
-        document.getElementById('report').innerHTML = reportText;
-        document.getElementById('report').style.display = 'block';
-    }
-    </script>
-
-</body>
-</html>
-
+            reportText += "<p>Overall, your clinic is performing very well. Keep up the good work, but there are always areas to improve, and we’re here to
